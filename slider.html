@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main_container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vz;
+    }
+    .container1{
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .img1{
+      width: 700px;
+      height: 500px;
+      border-radius: 15px;
+    }
+    .button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .back_btn{
+      padding: 10px 20px;
+      margin-top: 20px;
+      margin-right: 10px;
+      background-color: #d0da7d;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    .next_btn{
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #88dbc9;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="main_container">
+    <div class="container1">
+      <img class="img1" id="image2" src="" alt="">
+      </div>
+      <div class="button">
+        <button class="back_btn" id ="back">BACK</button>
+        <button class="next_btn" id ="next">NEXT</button>
+      </div>
+    </div>
+    <script>
+      let images=["https://p4.wallpaperbetter.com/wallpaper/301/945/153/tom-and-jerry-tom-and-jerry-wallpaper-preview.jpg",
+        "https://lh3.googleusercontent.com/Fo0eEzPd4HgEHGGsvhOWCTvNvvYq-88lcmp_-TJftrMOlhLgmp5p3g2-jxAPirPkt3tJU4A_e6QrZ9jB8UtXZ_jiVcE=s1280-w1280-h800",
+        "https://images2.alphacoders.com/284/284150.jpg",
+        "https://blogassets.airtel.in/wp-content/uploads/2024/10/tom_and_jerry-whats_that_smell.jpg"];
+
+    let image2 = document.getElementById("image2");
+    let back = document.getElementById("back");
+    let next = document.getElementById("next");
+    let count = 0;
+    next.addEventListener("click",()=>{
+        if(count == images.length-1){
+        count = 0
+    }else
+        {
+        count++
+        }
+        showData()
+    })
+
+    back.addEventListener("click",()=>{
+
+if(count == 0){
+  count = images.length-1
+}else{
+  count--
+}
+showData()
+})
+
+function showData(){
+  image2.src = images[count]
+}
+
+showData()
+    </script>
+</body>
+</html>
